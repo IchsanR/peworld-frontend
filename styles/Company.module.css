@@ -1,0 +1,55 @@
+.bgUngu {
+  background-color:#5E50A1;
+  height: 200px;
+  width: 100%;
+}
+.bgAbu {
+  height: 500px;
+  width: 100%;
+  background-color:#ececec;
+  margin-bottom: 150px;
+}
+
+.border1 {
+  border-radius: 8px 8px 0px 0px;
+}
+
+.border2 {
+  border-radius: 0px 0px 8px 8px;
+}
+
+.picture {
+  border-radius: 50%;
+}
+
+.margin{
+  margin-top: 800px;
+}
+
+.text{
+  color: #9EA0A5;
+}
+
+.buttons{
+  background-color: #5E50A1;
+  border: none;
+  height: 50px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFF;
+}
+
+.block {
+  display: block;
+}
+
+@media screen and (max-width: 480px){
+  .bgUngu {
+    display: none;
+  }
+
+  .margin{
+    margin-top: 450px;
+  }
+}

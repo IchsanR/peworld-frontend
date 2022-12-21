@@ -1,0 +1,35 @@
+.bg {
+  height: 800px;
+  z-index: 2;
+}
+
+.mainbg {
+  z-index: 1;
+}
+
+.logo {
+  margin-top: 60px;
+  margin-left: 95px;
+  position: absolute;
+  z-index: 10;
+  width: 86px;
+  height: 24px;
+}
+
+.desc {
+  z-index: 10;
+}
+
+.sideDesc {
+  padding-left: 110px;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 70px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 480px) {
+  .leftPanel {
+    display: none;
+  }
+}

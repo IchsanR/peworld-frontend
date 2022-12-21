@@ -1,0 +1,153 @@
+.bgUngu {
+  height: 350px;
+  background-color: #5E50A1;
+  z-index: -3;
+}
+
+.displayMobile {
+  display: flex;
+}
+
+.links {
+  text-decoration: none;
+}
+
+.bgPutih {
+  padding: 400px;
+  background-color: #E5E5E5;
+}
+
+.bgPutihEdit {
+  padding-bottom: 1200px;
+  padding-top: 1200px;
+  background-color: #E5E5E5;
+}
+
+.bgPutihPerusahaan {
+  padding: 450px;
+  background-color: #E5E5E5;
+}
+
+.cards {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+}
+
+.profileImg {
+  border-radius: 50%;
+}
+
+.text {
+  color: #9EA0A5;
+}
+
+.textAddress {
+  margin-top: -5px;
+  margin-left: -15px;
+}
+
+.searchBtn {
+  background-color: #5E50A1;
+  color: #ffffff;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btnSkills {
+  background-color: rgba(251, 176, 23, 0.6);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.tabBtns {
+  background-color: white;
+  border: none;
+}
+
+.active{
+  border-bottom: 2px solid #5E50A1;
+}
+
+.topMin {
+  margin-top: -15px;
+}
+
+.editPicture {
+  background-color: #FFFFFF;
+  border: none;
+  padding-left: 85px;
+}
+
+.editPicture:hover{
+  cursor: pointer;
+}
+
+.searchBtn {
+  background-color: #5E50A1;
+  color: #ffffff;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+}
+
+.cancelBtn {
+  background-color: #e61313;
+  color: #FFFFFF;
+  height: 44px;
+  border: 1px solid #5E50A1;
+  border-radius: 4px;
+}
+
+.input {
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid #9EA0A5;
+}
+
+.textarea {
+  resize: none;
+  height: 140px;
+}
+
+.btnSkill {
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FBB017;
+  color: #FFFFFF;
+}
+
+.uploads {
+  height: 250px;
+  border: 2px dashed #9EA0A5;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 480px) {
+  .logoNavMobile {
+    margin-left: -75px;
+  }
+
+  .displayMobile {
+    display: block;
+  }
+
+  .menuNavMobile {
+    margin-right: -105px;
+  }
+
+  .cards {
+    margin-left: -70px;
+  }
+
+  .bgPutihEdit {
+    padding: 1500px;
+  }
+
+  .bgPutihPerusahaan {
+    padding: 700px;
+  }
+  
+}

@@ -1,0 +1,32 @@
+.helo {
+  font-weight: 600;
+  color: #1F2A36;
+}
+
+.subHelo {
+  font-size: 18px;
+  color: #46505C;
+}
+
+.input {
+  height: 50px;
+}
+
+.buttons {
+  background: #FBB017;
+  border-radius: 4px;
+  height: 50px;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.link {
+  font-size: 16px;
+  color: #1F2A36;
+  text-decoration: none;
+}
+
+.signLink {
+  color: #FBB017;
+}

@@ -1,0 +1,101 @@
+.cards {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+}
+
+.bgPutih {
+  padding: 500px;
+  background-color: #E5E5E5;
+}
+
+.profileImg {
+  border-radius: 50%;
+}
+
+.text {
+  color: #9EA0A5;
+}
+
+.textAddress {
+  margin-top: -5px;
+  margin-left: -15px;
+}
+
+.searchBtn {
+  background-color: #5E50A1;
+  color: #ffffff;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+}
+
+.btnSkills {
+  background-color: rgba(251, 176, 23, 0.6);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.tabBtns {
+  background-color: white;
+  border: none;
+}
+
+.active{
+  border-bottom: 2px solid #5E50A1;
+}
+
+.topMin {
+  margin-top: -15px;
+}
+
+.editPicture {
+  background-color: #FFFFFF;
+  border: none;
+  padding-left: 85px;
+}
+
+.editPicture:hover{
+  cursor: pointer;
+}
+
+.searchBtn {
+  background-color: #5E50A1;
+  color: #ffffff;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+}
+
+.cancelBtn {
+  background-color: #ffffff;
+  color: #5E50A1;
+  height: 44px;
+  border: 1px solid #5E50A1;
+  border-radius: 4px;
+}
+
+.input {
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid #9EA0A5;
+}
+
+.textarea {
+  resize: none;
+  height: 140px;
+}
+
+.btnSkill {
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FBB017;
+  color: #FFFFFF;
+}
+
+.uploads {
+  height: 250px;
+  border: 2px dashed #9EA0A5;
+  border-radius: 8px;
+}
