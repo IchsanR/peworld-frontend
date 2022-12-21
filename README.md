@@ -1,34 +1,206 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hirejob (Frontend)
+
+<!-- Logo -->
+<p align="center">
+
+  <h3 align="center">Hirejob</h3>
+  <p align="center">
+    <image align="center" width="200" src='./public/hirejob_logo.png' />
+  </p>
+
+  <!-- <p align="center">
+    <br />
+    <a href="https://mamarecipe-frontend.vercel.app/"><strong>View Demo</strong></a>
+    <br />
+  </p> -->
+</p>
+
+<!-- Table of Contents -->
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+  - [Project Structure](#project-structure)
+  - [Screenshots](#screenshots)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Contributing](#contributing)
+- [Related Project](#related-project)
+
+<!-- About The Project -->
+
+## About The Project
+
+Peworld is a web application where job seekers and recruiters meet. In this application, the you can create an account and upload your portfolio so the recruiters can see and if they are interseted about you, they can hire you.
+
+### Project Structure
+
+```
+|── hirejob-frontend
+   |── components        # Page components
+   |── HOC               # Higher order components (private route)
+   |── pages             # Project source code
+   |── public            # Public Assets
+   |── screenshot        # Screenshots of the application
+   |── styles            # Page CSS
+   |── .env              # Environment variables
+   |── .gitignore        # Files that should be ignored
+   |── .next.config.js   # Next configuration file
+   |── README.md         # Readme
+```
+
+### Screenshots
+
+<details>
+  <summary>
+    Login Page
+  </summary>
+<img src="/screenshots/login.png" alt="login page" />
+</details>
+
+<details>
+  <summary>
+    Register User
+  </summary>
+<img src="/screenshots/registerUser.png" alt="register user" />
+</details>
+
+<details>
+  <summary>
+    Register Company
+  </summary>
+<img src="/screenshots/registerRecruiter.png" alt="register company" />
+</details>
+
+<details>
+  <summary>
+    Landing Page
+  </summary>
+<img src="/screenshots/landing.png" alt="landing page" />
+</details>
+
+<details>
+  <summary>
+    Home Page
+  </summary>
+<img src="/screenshots/home.png" alt="home page" />
+</details>
+
+<details>
+  <summary>
+    Search User
+  </summary>
+<img src="/screenshots/search.png" alt="search user" />
+</details>
+
+<details>
+  <summary>
+    User Profile (Job experience)
+  </summary>
+<img src="/screenshots/profileUserExp.png" alt="job experience" />
+</details>
+
+<details>
+  <summary>
+    User Profile (Portfolio)
+  </summary>
+<img src="/screenshots/profileUserPorto.png" alt="user portfolio" />
+</details>
+
+<details>
+  <summary>
+    Edit User Profile
+  </summary>
+<img src="/screenshots/editProfileUser.png" alt="edit profile" />
+</details>
+
+<details>
+  <summary>
+    Company Profile
+  </summary>
+<img src="/screenshots/profileCompany.png" alt="company profile" />
+</details>
+
+<details>
+  <summary>
+    Edit Company Profile
+  </summary>
+<img src="/screenshots/editProfileCompany.png" alt="edit company profile" />
+</details>
+
+<details>
+  <summary>
+    Hire User
+  </summary>
+<img src="/screenshots/halamanHire.png" alt="hire user" />
+</details>
+
+### Built With
+
+This app was built with some technologies below:
+
+- [Next JS](https://nextjs.org/)
+- [React JS](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Axios](https://axios-http.com/)
+
+<!-- Getting Started -->
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+This is an example of how to list things you need to use the software and how to install them.
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Next.js](https://nextjs.org/docs/getting-started)
+
+### Installation
+
+- Clone the repository
+
+```sh
+git clone https://github.com/IchsanR/peworld-frontend.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Go to repository folder
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+cd peworld-frontend
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Install Module
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm install / npm i
+```
 
-## Learn More
+- Change the .env configuration at your root folder project like this
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+NEXT_PUBLIC_BACKEND_URL = your_api_url
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- Contributing -->
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b your-branch`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin your-branch`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- Related Projects -->
+
+## Related Project
+
+:rocket: [`Hirejob API (Backend)`](https://github.com/IchsanR/peworld-backend)
+
+<!-- :rocket: [`Demo Project`](https://mamarecipe-frontend.vercel.app/) -->
+
+<p align="right">(<a href="#top">back to top</a>)</p>
