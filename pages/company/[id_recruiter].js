@@ -49,8 +49,8 @@ export async function getStaticPaths() {
 }
 
 const CompanyProfile = (props) => {
-	const data = props.data[0];
-	// console.log(data);
+	const data = props.data;
+	// console.log(data.length);
 	return (
 		<>
 			<Head>
@@ -63,24 +63,38 @@ const CompanyProfile = (props) => {
 					<div className="d-flex justify-content-center align-items-center text-center mx-auto">
 						<div className={`position-absolute ${styles.margin}`}>
 							<Image
-								src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${data.profile_pic}`}
+								src={
+									data.length === 1
+										? `${data[0].profile_pic.split("|&&|")[0]}`
+										: "/"
+								}
 								width={150}
 								height={150}
 								alt=""
 								className={`${styles.picture} `}
 							/>
-							<h1>{data.perusahaan}</h1>
-							<p>{data.bidang}</p>
-							<p className={`${styles.text}`}>{data.kota}</p>
-							<p className={`${styles.text}`}>{data.description}</p>
-							<Link href={`/company/editcompany/${data.id_recruiter}`}>
+							<h1>{data.length === 1 ? data[0].perusahaan : ""}</h1>
+							<p>{data.length === 1 ? data[0].bidang : ""}</p>
+							<p className={`${styles.text}`}>
+								{data.length === 1 ? data[0].kota : ""}
+							</p>
+							<p className={`${styles.text}`}>
+								{data.length === 1 ? data[0].description : ""}
+							</p>
+							<Link href={`/company/editcompany/${data[0].id_recruiter}`}>
 								<button className={`${styles.buttons} col-12 mb-4`}>
 									Edit Profile
 								</button>
 							</Link>
-							<p className={`${styles.text}`}>{data.email}</p>
-							<p className={`${styles.text}`}>{data.instagram}</p>
-							<p className={`${styles.text}`}>{data.phone}</p>
+							<p className={`${styles.text}`}>
+								{data.length === 1 ? data[0].email : ""}
+							</p>
+							<p className={`${styles.text}`}>
+								{data.length === 1 ? data[0].instagram : ""}
+							</p>
+							<p className={`${styles.text}`}>
+								{data.length === 1 ? data[0].phone : ""}
+							</p>
 						</div>
 					</div>
 					<div className={`col-10 mx-auto my-4`}>

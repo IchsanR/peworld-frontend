@@ -20,6 +20,7 @@ const RecruiterLogin = () => {
 		axios
 			.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/recruiter/login`, form)
 			.then((response) => {
+				alert(response.data.message);
 				localStorage.setItem("token", response.data.data.token);
 				localStorage.setItem("data", JSON.stringify(response.data.data.data));
 				return router.push("/home");

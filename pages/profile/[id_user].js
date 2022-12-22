@@ -81,7 +81,7 @@ const Profile = (props) => {
 						<div className=" col-md-3 col-9 me-md-4 mb-md-0 mb-3 position-relative">
 							<section className={`${styles.cards} p-3`}>
 								<Image
-									src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${data.profile_pic}`}
+									src={`${data.profile_pic.split("|&&|")[0]}`}
 									width={135}
 									height={135}
 									className={`mx-auto d-block my-3 ${styles.profileImg}`}
@@ -110,21 +110,21 @@ const Profile = (props) => {
 								<p className={`${styles.text}`}>{data.tempatkerja}</p>
 								<p className={`${styles.text}`}>{data.description}</p>
 								{userRole === 0 ? (
-									<button className={`col-12 ${styles.searchBtn}`}>
-										<Link
-											href={`/hire/${data.id_user}`}
-											className={`text-light ${styles.links}`}>
+									<Link
+										href={`/hire/${data.id_user}`}
+										className={`text-light ${styles.links}`}>
+										<button className={`col-12 ${styles.searchBtn}`}>
 											hire
-										</Link>
-									</button>
+										</button>
+									</Link>
 								) : self === users ? (
-									<button className={`col-12 ${styles.searchBtn}`}>
-										<Link
-											href={`/profile/editprofile/${data.id_user}`}
-											className={`text-light ${styles.links}`}>
+									<Link
+										href={`/profile/editprofile/${data.id_user}`}
+										className={`text-light ${styles.links}`}>
+										<button className={`col-12 ${styles.searchBtn}`}>
 											Edit Profile
-										</Link>
-									</button>
+										</button>
+									</Link>
 								) : (
 									<></>
 								)}

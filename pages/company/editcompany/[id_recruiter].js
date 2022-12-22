@@ -32,7 +32,7 @@ const Company = () => {
 			axios
 				.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/recruiter/${id_recruiter}`)
 				.then((response) => {
-					setData(response.data.data.rows[0]);
+					setData(response.data.data.rows);
 				})
 				.catch((error) => {
 					// console.log(error);
@@ -81,18 +81,14 @@ const Company = () => {
 		let inputImage = new FormData();
 		inputImage.append("profile_pic", addImage);
 
-		console.log(addImage);
-
 		axios
 			.put(
 				`${process.env.NEXT_PUBLIC_BACKEND_URL}/recruiter/image/${id_recruiter}`,
 				inputImage
 			)
 			.then((response) => {
-				console.log(response);
-				alert("Photo berhasil diganti");
-				localStorage.setItem("data", JSON.stringify(data));
-				router.push(`/company/${data.id_recruiter}`);
+				alert(response.data.message);
+				router.push(`/company/${id_recruiter}`);
 			})
 			.catch((error) => {
 				// console.log(error);
@@ -112,9 +108,8 @@ const Company = () => {
 				form
 			)
 			.then((response) => {
-				console.log(response);
-				alert("Profil berhasil diupdate");
-				return router.push(`/company/${data.id_recruiter}`);
+				alert(response.data.message);
+				return router.push(`/company/${id_recruiter}`);
 				// localStorage.setItem("data", JSON.stringisfy(data));
 			})
 			.catch((error) => {
@@ -134,11 +129,14 @@ const Company = () => {
 				<div className="position-absolute translate-middle-y ps-5 my-5">
 					<div className="row col-11 ms-5 position-absolute my-5">
 						<div className=" col-md-3 col-9 me-md-4 position-relative">
-							{/* <form> */}
 							<form onSubmit={(e) => updatePhoto(e)}>
 								<section className={`${styles.cards} p-3`}>
 									<Image
-										src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${data.profile_pic}`}
+										src={
+											data.length === 1
+												? `${data[0].profile_pic.split("|&&|")[0]}`
+												: "/#"
+										}
 										width={135}
 										height={135}
 										className={`mx-auto d-block my-3 ${styles.profileImg}`}
@@ -166,8 +164,8 @@ const Company = () => {
 											Edit
 										</p>
 									</div>
-									<h4>{data.perusahaan}</h4>
-									<p>{data.bidang}</p>
+									<h4>{data.length === 1 ? data[0].perusahaan : ""}</h4>
+									<p>{data.length === 1 ? data[0].bidang : ""}</p>
 									<div className="row">
 										<Image
 											src="/map.png"
@@ -178,19 +176,24 @@ const Company = () => {
 										/>
 										<p
 											className={`col-auto ${styles.text} ${styles.textAddress}`}>
-											{data.kota}
+											{data.length === 1 ? data[0].kota : ""}
 										</p>
 									</div>
 								</section>
 								<button
 									type="submit"
-									class={`${styles.searchBtn} px-4 col-md-12 col-9 my-3`}>
+									className={`${styles.searchBtn} px-4 col-md-12 col-9 my-3`}>
 									Simpan
 								</button>
 								<button
 									type="submit"
-									class={`${styles.cancelBtn} px-4 col-md-12 col-9`}
-									onClick={(e) => deleteAccount(data.id_recruiter, e)}>
+									className={`${styles.cancelBtn} px-4 col-md-12 col-9`}
+									onClick={(e) =>
+										deleteAccount(
+											data.length === 1 ? data[0].id_recruiter : null,
+											e
+										)
+									}>
 									Delete Account
 								</button>
 							</form>
@@ -202,7 +205,6 @@ const Company = () => {
 								</div>
 								<div className="border"></div>
 								<form className="col-12 p-3" onSubmit={(e) => updateUser(e)}>
-									{/* <form className="col-12 p-3"> */}
 									<div className="mb-4">
 										<label
 											htmlFor="companyName"

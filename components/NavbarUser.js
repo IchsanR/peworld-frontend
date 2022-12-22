@@ -4,13 +4,10 @@ import Link from "next/link";
 import styles from "../styles/Profile.module.css";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
+import axios from "axios";
 
 const NavbarUser = (props) => {
 	const { children } = props;
-	const [photo, setPhoto] = useState({
-		isLoading: true,
-		data: "",
-	});
 
 	const [data, setData] = useState({
 		isLoading: true,
@@ -18,18 +15,44 @@ const NavbarUser = (props) => {
 	});
 
 	const userRole = data.data.levels;
+	let userId;
+	if (userRole === 0) {
+		userId = data.data.id_recruiter;
+	} else {
+		userId = data.data.id_user;
+	}
 
 	useEffect(() => {
 		const user = JSON.parse(localStorage.getItem("data"));
 
 		if (user) {
-			setPhoto({ ...photo, isLoading: false, data: user.profile_pic });
-		}
-
-		if (user) {
 			setData({ ...data, isLoading: false, data: user });
 		}
 	}, []);
+
+	const [dataUser, setDataUser] = useState([]);
+
+	useEffect(() => {
+		if (userId && userRole === 1) {
+			axios
+				.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${userId}`)
+				.then((response) => {
+					setDataUser(response.data.data.rows);
+				})
+				.catch((error) => {
+					// console.log(error);
+				});
+		} else {
+			axios
+				.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/recruiter/${userId}`)
+				.then((response) => {
+					setDataUser(response.data.data.rows);
+				})
+				.catch((error) => {
+					// console.log(error);
+				});
+		}
+	}, [userId, userRole]);
 
 	const router = useRouter();
 	const logout = (e) => {
@@ -109,34 +132,39 @@ const NavbarUser = (props) => {
 								type="button"
 								data-bs-toggle="dropdown"
 								aria-expanded="false">
-								{photo.isLoading ? (
-									<div
-										className={`rounded-circle mx-2`}
-										width={40}
-										height={40}></div>
-								) : (
-									<Image
-										src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${photo.data}`}
-										width={24}
-										height={24}
-										alt=""
-										className={`${styles.profileImg}`}
-										priority={true}
-									/>
-								)}
+								<Image
+									src={
+										dataUser.length === 1
+											? `${dataUser[0].profile_pic.split("|&&|")[0]}`
+											: "/"
+									}
+									width={24}
+									height={24}
+									alt=""
+									className={`${styles.profileImg}`}
+									priority={true}
+								/>
 							</button>
 							<ul className="dropdown-menu dropdown-menu-end">
 								<li>
 									{userRole === 0 ? (
 										<Link
 											className="dropdown-item"
-											href={`/company/${data.data.id_recruiter}`}>
+											href={
+												dataUser.length === 1
+													? `/company/${dataUser[0].id_recruiter}`
+													: "/"
+											}>
 											Profile
 										</Link>
 									) : (
 										<Link
 											className="dropdown-item"
-											href={`/profile/${data.data.id_user}`}>
+											href={
+												dataUser.length === 1
+													? `/profile/${dataUser[0].id_user}`
+													: "/"
+											}>
 											Profile
 										</Link>
 									)}
@@ -145,13 +173,21 @@ const NavbarUser = (props) => {
 									{userRole === 0 ? (
 										<Link
 											className="dropdown-item"
-											href={`/company/editcompany/${data.data.id_recruiter}`}>
+											href={
+												dataUser.length === 1
+													? `/company/editcompany/${dataUser[0].id_recruiter}`
+													: "/"
+											}>
 											Edit Profile
 										</Link>
 									) : (
 										<Link
 											className="dropdown-item"
-											href={`/profile/editprofile/${data.data.id_user}`}>
+											href={
+												dataUser.length === 1
+													? `/profile/editprofile/${dataUser[0].id_user}`
+													: "/"
+											}>
 											Edit Profile
 										</Link>
 									)}

@@ -161,7 +161,7 @@ const Home = (props) => {
 										<div className="d-flex">
 											<div className={`pe-md-5 ms-md-5 ms-2`}>
 												<Image
-													src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${item.profile_pic}`}
+													src={`${item.profile_pic.split("|&&|")[0]}`}
 													width={95}
 													height={95}
 													className={`${styles.profileImage}`}

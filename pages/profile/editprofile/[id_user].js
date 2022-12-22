@@ -11,6 +11,7 @@ const EditProfile = () => {
 	const { id_user } = router.query;
 
 	const [data, setData] = useState([]);
+
 	const [form, setForm] = useState({
 		names: null,
 		jobdesk: null,
@@ -44,7 +45,7 @@ const EditProfile = () => {
 			axios
 				.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${id_user}`)
 				.then((response) => {
-					setData(response.data.data.rows[0]);
+					setData(response.data.data.rows);
 				})
 				.catch((error) => {
 					// console.log(error);
@@ -96,9 +97,8 @@ const EditProfile = () => {
 				inputImage
 			)
 			.then((response) => {
-				// console.log(response);
+				console.log(response);
 				alert("Photo berhasil diganti");
-				localStorage.setItem("data", JSON.stringify(data));
 				router.push(`/profile/${id_user}`);
 			})
 			.catch((error) => {
@@ -117,7 +117,7 @@ const EditProfile = () => {
 			.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${id_user}`, form)
 			.then((response) => {
 				alert("Profil berhasil diupdate");
-				return router.push(`/profile/${data.id_user}`);
+				return router.push(`/profile/${id_user}`);
 			})
 			.catch((error) => {
 				// console.log(error);
@@ -151,9 +151,10 @@ const EditProfile = () => {
 		axios
 			.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/porto`, inputPorto)
 			.then((response) => {
+				console.log(response);
 				if (response.data.data.command === "INSERT") {
 					alert("Portfolio berhasil ditambahkan");
-					return router.push(`/profile/${data.id_user}`);
+					return router.push(`/profile/${id_user}`);
 				}
 			})
 			.catch((error) => {
@@ -180,7 +181,7 @@ const EditProfile = () => {
 			.then((response) => {
 				if (response.data.data.command === "INSERT") {
 					alert("Experience berhasil ditambahkan");
-					return router.push(`/profile/${data.id_user}`);
+					return router.push(`/profile/${id_user}`);
 				}
 			})
 			.catch((error) => {
@@ -202,7 +203,11 @@ const EditProfile = () => {
 							<form onSubmit={(e) => updatePhoto(e)}>
 								<section className={`${styles.cards} p-3`}>
 									<Image
-										src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${data.profile_pic}`}
+										src={
+											data.length === 1
+												? `${data[0].profile_pic.split("|&&|")[0]}`
+												: ""
+										}
 										width={135}
 										height={135}
 										className={`mx-auto d-block my-3 ${styles.profileImg}`}
@@ -230,8 +235,8 @@ const EditProfile = () => {
 											Edit
 										</p>
 									</div>
-									<h4>{data.names}</h4>
-									<p>{data.jobdesk}</p>
+									<h4>{data.length === 1 ? data[0].names : ""}</h4>
+									<p>{data.length === 1 ? data[0].jobdesk : ""}</p>
 									<div className="row">
 										<Image
 											src="/map.png"
@@ -242,10 +247,12 @@ const EditProfile = () => {
 										/>
 										<p
 											className={`col-auto ${styles.text} ${styles.textAddress}`}>
-											{data.domisili}
+											{data.length === 1 ? data.domisili : ""}
 										</p>
 									</div>
-									<p className={`${styles.text}`}>{data.tempatkerja}</p>
+									<p className={`${styles.text}`}>
+										{data.length === 1 ? data.tempatkerja : ""}
+									</p>
 								</section>
 								<button
 									type="submit"
@@ -256,7 +263,7 @@ const EditProfile = () => {
 							<button
 								type="button"
 								className={`${styles.cancelBtn} px-4 col-md-12 col-9`}
-								onClick={(e) => deleteAccount(data.id_user, e)}>
+								onClick={(e) => deleteAccount(data[0].id_user, e)}>
 								Delete Account
 							</button>
 						</div>
@@ -277,7 +284,7 @@ const EditProfile = () => {
 											type="text"
 											className={`form-control ${styles.input}`}
 											id="nameInput"
-											defaultValue={data.names}
+											defaultValue={data.length === 1 ? data[0].names : ""}
 											placeholder="Masukan nama lengkap"
 											onChange={(e) => {
 												setForm({ ...form, names: e.target.value });
@@ -294,7 +301,7 @@ const EditProfile = () => {
 											type="text"
 											className={`form-control ${styles.input}`}
 											id="jobDesc"
-											defaultValue={data.jobdesk}
+											defaultValue={data.length === 1 ? data[0].jobdesk : ""}
 											placeholder="Masukan job desc"
 											onChange={(e) => {
 												setForm({ ...form, jobdesk: e.target.value });
@@ -311,7 +318,7 @@ const EditProfile = () => {
 											type="text"
 											className={`form-control ${styles.input}`}
 											id="domisili"
-											defaultValue={data.domisili}
+											defaultValue={data.length === 1 ? data[0].domisili : ""}
 											placeholder="Masukan domisili"
 											onChange={(e) => {
 												setForm({ ...form, domisili: e.target.value });
@@ -328,7 +335,9 @@ const EditProfile = () => {
 											type="text"
 											className={`form-control ${styles.input}`}
 											id="tempatKerja"
-											defaultValue={data.tempatkerja}
+											defaultValue={
+												data.length === 1 ? data[0].tempatkerja : ""
+											}
 											placeholder="Masukkan Tempat kerja"
 											onChange={(e) => {
 												setForm({ ...form, tempatkerja: e.target.value });
@@ -345,7 +354,7 @@ const EditProfile = () => {
 											type="text"
 											className={`form-control ${styles.textarea}`}
 											id="textarea"
-											defaultValue={data.bio}
+											defaultValue={data.length === 1 ? data[0].bio : ""}
 											placeholder="Masukkan deskripsi singkat"
 											onChange={(e) => {
 												setForm({ ...form, bio: e.target.value });

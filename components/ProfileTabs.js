@@ -69,8 +69,6 @@ const ProfileTabs = () => {
 			});
 	}, [id_user]);
 
-	console.log(exp);
-
 	return (
 		<>
 			<section className={`${styles.cards} p-3`}>
@@ -105,7 +103,9 @@ const ProfileTabs = () => {
 								porto.map((item, index) => (
 									<div className="text-center p-2" key={index}>
 										<Image
-											src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${item.images}`}
+											src={
+												item.images ? `${item.images.split("|&&|")[0]}` : "/"
+											}
 											width={200}
 											height={130}
 											alt=""
