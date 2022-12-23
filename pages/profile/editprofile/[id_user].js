@@ -396,7 +396,9 @@ const EditProfile = () => {
 								</div>
 								<div className="border"></div>
 								<div className={`row container-fluid`}>
-									<form className="col-12 p-3" onSubmit={(e) => onSubmit(e)}>
+									<form
+										className="col-12 p-3"
+										onSubmit={(e) => insertExperience(e)}>
 										<div className="mb-4">
 											<label
 												htmlFor="posisiJabatan"
@@ -477,8 +479,7 @@ const EditProfile = () => {
 										</div>
 										<button
 											className={`col-12 ${styles.btnSkill}`}
-											type="button"
-											onClick={(e) => insertExperience(e)}>
+											type="submit">
 											Tambah pengalaman kerja
 										</button>
 									</form>
@@ -490,7 +491,7 @@ const EditProfile = () => {
 								</div>
 								<div className="border"></div>
 								<div className={`row container-fluid`}>
-									<form className="col-12 p-3" onSubmit={(e) => onSubmit(e)}>
+									<form className="col-12 p-3" onSubmit={(e) => addPorto(e)}>
 										<div className="mb-4">
 											<label
 												htmlFor="aplikasi"
@@ -598,8 +599,7 @@ const EditProfile = () => {
 										</div>
 										<button
 											className={`col-12 ${styles.btnSkill}`}
-											type="button"
-											onClick={(e) => addPorto(e)}>
+											type="submit">
 											Tambah portfolio
 										</button>
 									</form>
