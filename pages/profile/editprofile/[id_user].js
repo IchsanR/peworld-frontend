@@ -98,11 +98,11 @@ const EditProfile = () => {
 			)
 			.then((response) => {
 				console.log(response);
-				alert("Photo berhasil diganti");
+				alert(response.data.message);
 				router.push(`/profile/${id_user}`);
 			})
 			.catch((error) => {
-				// console.log(error);
+				console.log(error);
 			});
 	};
 	// Batas update image

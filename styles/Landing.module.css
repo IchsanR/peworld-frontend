@@ -138,8 +138,8 @@
   }
 
   .layer1,.layer1sect2, .layer1sect3{
-    width: 550px;
-    height: 550px;
+    width: 450px;
+    height: 450px;
     margin-left: -50px;
   }
   
@@ -149,10 +149,29 @@
 
   .list2{
     /* margin-top: -255px; */
-    margin-right: -90px;
+    margin-right: -88px;
   } 
 
   .cards {
     display: block;
+  }
+
+  .hiddenCard {
+    display: none;
+  }
+
+  .titleStart {
+    display: none;
+  }
+
+  .startNowBtn {
+    margin-top: -10px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+  }
+
+  .bgStart {
+    margin-top: -70px;
+    padding-bottom: 30px;
   }
 }

@@ -214,7 +214,7 @@ export default function Landing() {
 					<div
 						className={`d-flex justify-content-center align-items-center ${styles.cardsSect}`}>
 						<div
-							className={`card ${styles.cards} mx-3`}
+							className={`card ${styles.cards} ${styles.hiddenCard} mx-3`}
 							style={{ width: "18rem" }}>
 							<Image
 								src="/avatar.png"
@@ -233,7 +233,7 @@ export default function Landing() {
 							</div>
 						</div>
 						<div
-							className={`card ${styles.cards} mx-3`}
+							className={`card ${styles.cards} ${styles.hiddenCard} mx-3`}
 							style={{ width: "18rem" }}>
 							<Image
 								src="/avatar.png"
@@ -273,7 +273,7 @@ export default function Landing() {
 					</div>
 				</section>
 				<section className="container-fluid row my-5">
-					<div className={`${styles.startNow} col-10 row my-5`}>
+					<div className={`${styles.startNow} col-md-10 row my-5`}>
 						<div className="row">
 							<Image
 								src="/LayerStarting.png"
@@ -298,7 +298,7 @@ export default function Landing() {
 							</h2>
 							<div className="col-md-10"></div>
 							<button
-								className={`col-2 position-relative bottom-50 ${styles.startNowBtn}`}>
+								className={`col-md-2 position-relative bottom-50 ${styles.startNowBtn}`}>
 								Mulai Dari Sekarang
 							</button>
 						</div>

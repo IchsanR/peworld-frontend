@@ -142,12 +142,25 @@
     margin-left: -70px;
   }
 
+  .bgPutih {
+    padding-bottom: 400px;
+    padding-top: 400px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .bgPutihEdit {
-    padding: 1500px;
+    padding-bottom: 1500px;
+    padding-top: 1500px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .bgPutihPerusahaan {
-    padding: 700px;
+    padding-bottom: 750px;
+    padding-top: 750px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   
 }
