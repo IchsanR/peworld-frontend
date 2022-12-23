@@ -8,11 +8,11 @@
     <image align="center" width="200" src='./public/hirejob_logo.png' />
   </p>
 
-  <!-- <p align="center">
+  <p align="center">
     <br />
-    <a href="https://mamarecipe-frontend.vercel.app/"><strong>View Demo</strong></a>
+    <a href="https://peworld-lake.vercel.app/"><strong>View Demo</strong></a>
     <br />
-  </p> -->
+  </p>
 </p>
 
 <!-- Table of Contents -->
