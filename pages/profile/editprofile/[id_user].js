@@ -247,11 +247,11 @@ const EditProfile = () => {
 										/>
 										<p
 											className={`col-auto ${styles.text} ${styles.textAddress}`}>
-											{data.length === 1 ? data.domisili : ""}
+											{data.length === 1 ? data[0].domisili : ""}
 										</p>
 									</div>
 									<p className={`${styles.text}`}>
-										{data.length === 1 ? data.tempatkerja : ""}
+										{data.length === 1 ? data[0].tempatkerja : ""}
 									</p>
 								</section>
 								<button
