@@ -17,7 +17,7 @@ export async function getStaticProps(context) {
 			props: {
 				data: response.data.data.rows,
 			},
-			revalidate: 60,
+			revalidate: 10,
 			notFound: false,
 		};
 	} catch (error) {
@@ -25,7 +25,7 @@ export async function getStaticProps(context) {
 			props: {
 				data: null,
 			},
-			revalidate: 60, // 60 second
+			revalidate: 10, // 60 second
 			notFound: true,
 		};
 	}
