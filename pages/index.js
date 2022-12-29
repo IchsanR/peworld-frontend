@@ -217,15 +217,15 @@ export default function Landing() {
 							className={`card ${styles.cards} ${styles.hiddenCard} mx-3`}
 							style={{ width: "18rem" }}>
 							<Image
-								src="/avatar.png"
+								src="/avatar2.jpg"
 								className={`${styles.cardImage} mx-auto d-block mt-4`}
 								alt="..."
 								width={110}
 								height={110}
 							/>
 							<div className="card-body">
-								<h4 className={`${styles.titleCard}`}>Louis Tomlinson</h4>
-								<p className={`${styles.subsCard}`}>Web Developer</p>
+								<h4 className={`${styles.titleCard}`}>Cristiano Ronaldo</h4>
+								<p className={`${styles.subsCard}`}>Football Player</p>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
 									euismod ipsum et dui rhoncus auctor.
@@ -255,15 +255,15 @@ export default function Landing() {
 							className={`card ${styles.cards} mx-3`}
 							style={{ width: "18rem" }}>
 							<Image
-								src="/avatar.png"
+								src="/avatar3.jpg"
 								className={`${styles.cardImage} mx-auto d-block mt-4`}
 								alt="..."
 								width={110}
 								height={110}
 							/>
 							<div className="card-body">
-								<h4 className={`${styles.titleCard}`}>Louis Tomlinson</h4>
-								<p className={`${styles.subsCard}`}>Web Developer</p>
+								<h4 className={`${styles.titleCard}`}>Elon Musk</h4>
+								<p className={`${styles.subsCard}`}>Enterpreneur</p>
 								<p className="card-text">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
 									euismod ipsum et dui rhoncus auctor.
